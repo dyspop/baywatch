@@ -5,7 +5,7 @@ Current version returns statistical analyses on the input data
 
 ## Installation
 
-tested on Python 2.7.10 
+Tested on Python 2.7.10 and 3.6.3 doesn't use `print()` `;)`.
 
 to run locally:
 

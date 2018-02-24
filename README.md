@@ -57,14 +57,14 @@ Submit query arguments and the application will return confidence intervals for 
 
 API accepts five arguments:
 
-argument | required | accepted ranges | notes
---- | --- | --- | --- | ---
-`base_pool` | yes | gte `1` | This is the base pool you're testing against. e.g. how many views did the control page of the landing page test get?
-`base_events` | yes | gte `0` | This is the base event occurrence you're testing against. e.g. how many clicks or conversions did the control page of the landing page get?
-`test_pool` | yes | gte `1` | The same as base_pool but for the variation you're testing against the control
-`test_events` | yes | gte `0` | The same as base_events but for the variation you're testing against the control
-`samples_to_draw` | yes | gte `1` | It is currently recommended to send 1000000 for a fairly quick but accurate calculation. (This probably shouldn't be required but instead default to a number or calculated sample count to estimate accuracy against server load, or speed vs accuracy, or both.)
-`format` | no | `json` | this is intended to specify the output format, for example json, csv, xml, txt etc
+| argument | required | accepted ranges | notes |
+| --- | --- | --- | --- | --- |
+| `base_pool` | yes | gte `1` | This is the base pool you're testing against. e.g. how many views did the control page of the landing page test get? |
+| `base_events` | yes | gte `0` | This is the base event occurrence you're testing against. e.g. how many clicks or conversions did the control page of the landing page get? |
+| `test_pool` | yes | gte `1` | The same as base_pool but for the variation you're testing against the control |
+| `test_events` | yes | gte `0` | The same as base_events but for the variation you're testing against the control |
+| `samples_to_draw` | yes | gte `1` | It is currently recommended to send 1000000 for a fairly quick but accurate calculation. (This probably shouldn't be required but instead default to a number or calculated sample count to estimate accuracy against server load, or speed vs accuracy, or both.) |
+| `format` | no | `json` | this is intended to specify the output format, for example json, csv, xml, txt etc |
 
 ## Contributing
 

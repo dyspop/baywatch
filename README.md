@@ -15,30 +15,19 @@ to run locally:
 2. install virtualenv https://pypi.python.org/pypi/virtualenv
 3. create and activate a virtualenv 
   * `$ virtualenv env && source env/bin/activate` 
-4. install packages
-  * `$ pip install Flask`
-  * `$ pip install numpy` (this one takes a while)
-  * `$ pip install scipy` (this one takes a while)
+4. install required packages
+    $ pip install requirements.txt
 5. clone the repo
 6. make it an executable with `$ chmod a+x app.py` 
 7. then `$ ./app.py` will run the app
-8. when done deactivate the virtualenv with `deactivate`
-
-### using your system python interpreter and packages (not recommended)
-
-1. install pip https://pip.pypa.io/en/stable/installing/
-2. install packages
-  * `$ pip install Flask`
-  * `$ pip install numpy` (this one takes a while)
-  * `$ pip install scipy` (this one takes a while)
-3. clone the repo
-4. run the app with `$ python app.py` 
+8. when done deactivate the virtualenv with `deactivate` 
 
 ### create a configuration file
 
 Add a config.py to the app root folder. The main thing for development is to enable debug mode to see in-browser debugging and tracebacks. an example looks like:
 
 `DEBUG = True`  
+`SAMPLES_TO_DRAW = 1000000`
 `SECRET_KEY = ''`  
 `DATABASE_URI = ''`
 

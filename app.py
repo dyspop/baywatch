@@ -11,7 +11,7 @@ def index():
   # views comin'
 
   return """
-  
+  API route is /baywatch/api/v0.1/ab_test/<br>
   Please read the <a href=\"https://github.com/dyspop/baywatch/\">documentation</a>
   """
 

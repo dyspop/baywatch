@@ -58,7 +58,7 @@ Submit query arguments and the application will return confidence intervals for 
 API accepts five arguments:
 
 | argument  | required  | accepted ranges | notes  |
-|---|---|---|---|---|
+|---|---|---|---|
 | `base_pool`  | yes  | gte `1`  | This is the base pool you're testing against. e.g. how many views did the control page of the landing page test get? |
 | `base_events`  | yes  | gte `0`  | This is the base event occurrence you're testing against. e.g. how many clicks or conversions did the control page of the landing page get?  |
 | `test_pool`  | yes  | gte `1`  | The same as base_pool but for the variation you're testing against the control  |

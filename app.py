@@ -9,7 +9,11 @@ app = Flask(__name__)
 @app.route('/baywatch/')
 def index():
   # views comin'
-  return "Please read the <a href=\"https://github.com/BeenVerifiedInc/baywatch/\">documentation</a>"
+
+  return """
+  
+  Please read the <a href=\"https://github.com/dyspop/baywatch/\">documentation</a>
+  """
 
 @app.route('/baywatch/api/v0.1/ab_test/')
 def run_test():

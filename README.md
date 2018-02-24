@@ -57,7 +57,7 @@ Submit query arguments and the application will return confidence intervals for 
 
 Example query:
 
-  hostpath/baywatch/api/v0.1/ab_test/?base_pool=411524&base_events=3425&test_pool=41343&test_events=1231&samples_to_draw=10000
+    hostpath/baywatch/api/v0.1/ab_test/?base_pool=411524&base_events=3425&test_pool=41343&test_events=1231&samples_to_draw=10000
 
 API accepts five arguments:
 

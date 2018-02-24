@@ -14,7 +14,7 @@ to run locally:
 1. install pip https://pip.pypa.io/en/stable/installing/
 2. install virtualenv https://pypi.python.org/pypi/virtualenv
 3. create and activate a virtualenv 
-  * `$ virtualenv baywatch` where baywatch is the virtual environment name
+  * `$ virtualenv env && source env/bin/activate` 
 4. install packages
   * `$ pip install Flask`
   * `$ pip install numpy` (this one takes a while)

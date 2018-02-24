@@ -82,7 +82,3 @@ TODO: Write history
 
 Initial python scripts adapted by Dan Black from Michael McCarthy's. 
 Miguel Grinberg's Flask megatutorial and API tutorial.
-
-## License
-
-TODO: Write license

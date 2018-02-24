@@ -27,7 +27,7 @@ to run locally:
 Add a config.py to the app root folder. The main thing for development is to enable debug mode to see in-browser debugging and tracebacks. an example looks like:
 
 `DEBUG = True`  
-`SAMPLES_TO_DRAW = 1000000`
+`SAMPLES_TO_DRAW = 1000000`  
 `SECRET_KEY = ''`  
 `DATABASE_URI = ''`
 

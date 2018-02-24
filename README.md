@@ -13,14 +13,13 @@ to run locally:
 
 1. install pip https://pip.pypa.io/en/stable/installing/
 2. install virtualenv https://pypi.python.org/pypi/virtualenv
-3. create and activate a virtualenv 
-  * `$ virtualenv env && source env/bin/activate` 
-4. install required packages
-    $ pip install requirements.txt
-5. clone the repo
-6. make it an executable with `$ chmod a+x app.py` 
-7. then `$ ./app.py` will run the app
-8. when done deactivate the virtualenv with `deactivate` 
+3. 
+```
+$git clone git@github.com:dyspop/baywatch.git \
+&& virtualenv env && source env/bin/activate \
+&& pip install -r requirements.txt \
+&& chmod a+x app.py && python app.py
+```
 
 ### create a configuration file
 

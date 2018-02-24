@@ -74,10 +74,6 @@ API accepts five arguments:
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-## History
-
-TODO: Write history
-
 ## Credits
 
 Initial python scripts adapted by Dan Black from Michael McCarthy's. 

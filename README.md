@@ -15,10 +15,12 @@ to run locally:
 2. install virtualenv https://pypi.python.org/pypi/virtualenv
 3. copy this, paste it into your terminal and hit enter/return:
 
-    git clone git@github.com:dyspop/baywatch.git && cd baywatch && virtualenv env \
-    && source env/bin/activate && pip install -r requirements.txt && chmod a+x app.py \
-    && echo $'DEBUG=True\nSAMPLES_TO_DRAW=1000000' >config.py && python app.py && \
-    open http://127.0.0.1:5000/baywatch/api/v0.1/ab_test/?base_pool=411524&base_events=3425&test_pool=41343&test_events=1231&samples_to_draw=1000000
+```
+git clone git@github.com:dyspop/baywatch.git && cd baywatch && virtualenv env \
+&& source env/bin/activate && pip install -r requirements.txt && chmod a+x app.py \
+&& echo $'DEBUG=True\nSAMPLES_TO_DRAW=1000000' >config.py && python app.py && \
+open http://127.0.0.1:5000/baywatch/api/v0.1/ab_test/?base_pool=411524&base_events=3425&test_pool=41343&test_events=1231&samples_to_draw=1000000
+```
 
 ---
 runs locally at http://127.0.0.1:5000/

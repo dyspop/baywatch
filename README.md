@@ -37,7 +37,7 @@ API is at /baywatch/api/v0.1/ab_test/
 
 Submit query arguments and the application will return confidence intervals for 0-100% confidence, as well as return the probabilities of lift percentages in the test against the control, where appropriate and not redundant.
 
-The return is a json object with n main features:
+The return is a json object with these results as features:
 
 ### Choose winner at nth precision in lift delta percentage
 
@@ -45,7 +45,7 @@ The return is a json object with n main features:
 
 ### Confidence Intervals
 
-`confidence_intervals` This will always be a set of key-value pairs with the keys being n (as `0`-`100`) and the result being an array of the results of the test at that nth confidence interval for the test base vs test as `[{base}, {test}]`.
+`confidence_intervals` This will always be a set of key-value pairs with the keys being n (as `0`-`100`) and the result being an array of the results of the test at that nth confidence interval for the test "base vs test" as `[{base}, {test}]`.
 
 ### Cost of Mistakenly Choosing
 

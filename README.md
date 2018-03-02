@@ -110,6 +110,8 @@ In the example above it is at a confidence interval of 1 the base result is low 
 
 This is very useful in helping to determine when a test result may be overlooked for some other concern, for example if they are very close to eachother.
 
+---
+
 ### Probabilities of Lifts
 
 `probabilities_of_lifts` a set of (currently one) key-value pairs where key is the lift percentage and the value is its corresponding probability. This tells you how probable it is that the key lift amount (currently `1%` only supported) will successfully occur if you choose the winner.
@@ -173,9 +175,9 @@ This is the overall test result! In this case the test won. Looking at the rest 
 
 ---
 
-Example query:
+Example query for the above example results:
 
-    hostpath/baywatch/api/v0.1/ab_test/?base_pool=50&base_events=1&test_pool=50&test_events=15&samples_to_draw=10000
+    http://127.0.0.1:5000/baywatch/api/v0.1/ab_test/?base_pool=50&base_events=1&test_pool=50&test_events=15&samples_to_draw=10000
     
 ---
 

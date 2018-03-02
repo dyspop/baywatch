@@ -43,30 +43,7 @@ The return is a json object with these results as features:
 
 `choose_winner_at_precision_in_lift_delta_percentage` This will always be a set of key-value pairs with keys being n (as `0`-`100`) and the result being a boolean. This means the winner can be choseen at the nth level of precision from the lift delta. This easily makes it available to see at what level of precision the winner was chosen rather than taking precision as an argument and returning the boolean state of the result without regard to how close the result was to the precision.
 
-### Confidence Intervals
-
-`confidence_intervals` This will always be a set of key-value pairs with the keys being n (as `0`-`100`) and the result being an array of the results of the test at that nth confidence interval for the test "base vs test" as `[{base}, {test}]`.
-
-### Cost of Mistakenly Choosing
-
-`cost_of_mistakenly_choosing` simply a measure of how much lift (currently `0%`-`1%`) you stand to lose by choosing each of the results incorrectly. This is very useful in helping to determine when a test result may be overlooked for some other concern.
-
-### Probabilities of Lifts
-
-`probabilities_of_lifts` a set of (currently one) key-value pairs where key is the lift percentage and the value is its corresponding probability. This tells you how probable it is that the key lift amount (currently `1%` only supported) will successfully occur if you choose the winner.
-
-### Winners
-
-`winners` a simple boolean per each test cell. 
-
-Example query:
-
-    hostpath/baywatch/api/v0.1/ab_test/?base_pool=50&base_events=1&test_pool=50&test_events=15&samples_to_draw=10000
-    
 Example results (truncated and reformated for clarity):
-
----
-
 ```
 {
   "choose_winner_at_precision_in_lift_delta_percentage": {
@@ -86,10 +63,16 @@ Example results (truncated and reformated for clarity):
     "99": "True"
   }, 
 ``` 
-As you can see it is at as low as a 50% precision where a winner is chosen. This is a strong result. The closer the the choice to 100 precision (which this API does not return) the weaker the test result is. (note: this may be reworked to a simpler result in future version to just one value, in which case it would be represented as `"choose_winner_at_precision_in_lift_delta_percentage": 50,`
+
+In the example above it is at as low as a 50% precision where a winner is chosen. This is a strong result. The closer the the choice to 100 precision (which this API does not return) the weaker the test result is. (note: this may be reworked to a simpler result in future version to just one value, in which case it would be represented as `"choose_winner_at_precision_in_lift_delta_percentage": 50,`
 
 ---
 
+### Confidence Intervals
+
+`confidence_intervals` This will always be a set of key-value pairs with the keys being n (as `0`-`100`) and the result being an array of the results of the test at that nth confidence interval for the test "base vs test" as `[{base}, {test}]`.
+
+Example results (truncated and reformated for clarity):
 ```
 "confidence_intervals": { 
     "1": [ 0.4819, 0.9913 ], 
@@ -110,9 +93,13 @@ As you can see it is at as low as a 50% precision where a winner is chosen. This
   }, 
 ```
 
-As you can see at a confidence interval of 1 the base result is low and the test is high (just due to randomized sample generation of this particular test run), but as the interval approaches 100 the results flip. This can be useful as an eyeballing the test-generated randomization characteristics if you need to call into question the results of the test. The variance should be a constant of the inputs so rerunning the test and comparing results here is less useful than simply bumping up the samples to draw parameter.
+In the example above it is at a confidence interval of 1 the base result is low and the test is high (just due to randomized sample generation of this particular test run), but as the interval approaches 100 the results flip. This can be useful as an eyeballing the test-generated randomization characteristics if you need to call into question the results of the test. The variance should be a constant of the inputs so rerunning the test and comparing results here is less useful than simply bumping up the samples to draw parameter.
 
 ---
+
+### Cost of Mistakenly Choosing
+
+`cost_of_mistakenly_choosing` a measure of the probability that choosing the variation will not produce the lift expected (currently `1%` lift is only supported).
 
 ```
   "cost_of_mistakenly_choosing": {
@@ -121,9 +108,12 @@ As you can see at a confidence interval of 1 the base result is low and the test
   },
 ```
 
-This is simply a measure of how probable it is that choosing either of the results incorrectly will result differently from the test. This is very useful in helping to determine when a test result may be overlooked for some other concern, for example if they are very close to eachother.
+This is very useful in helping to determine when a test result may be overlooked for some other concern, for example if they are very close to eachother.
 
----
+### Probabilities of Lifts
+
+`probabilities_of_lifts` a set of (currently one) key-value pairs where key is the lift percentage and the value is its corresponding probability. This tells you how probable it is that the key lift amount (currently `1%` only supported) will successfully occur if you choose the winner.
+
 ```
   "probabilities_of_lifts": {
     "0.994": 0.99, 
@@ -166,9 +156,13 @@ This is simply a measure of how probable it is that choosing either of the resul
   }, 
 ```
 
-This reveals at which the test becomes improbable to be true. For example in our test above you could say it is 99% probable that there is a 0.994% lift, and it is 0% probable that there is a 1% lift. This is a very nice, narrowly accurate result. 
+This reveals at which the test becomes improbable to be true. For example in our test above you could say it is 99% probable that there is a 0.994% lift, and it is 0% probable that there is a 1% lift between the loser and the winner. This is a very nice, narrowly accurate result.
 
 ---
+
+### Winners
+
+`winners` a simple boolean per each test variation. 
 
 ```
   "winners": { "base": "False", "test": "True" }
@@ -178,6 +172,13 @@ This reveals at which the test becomes improbable to be true. For example in our
 This is the overall test result! In this case the test won. Looking at the rest of the data makes it obvious, and this is in this case simply a confirmation. Use this result when determination is otherwise difficult.
 
 ---
+
+Example query:
+
+    hostpath/baywatch/api/v0.1/ab_test/?base_pool=50&base_events=1&test_pool=50&test_events=15&samples_to_draw=10000
+    
+---
+
 
 The API accepts five arguments:
 
